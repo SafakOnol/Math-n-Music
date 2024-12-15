@@ -81,21 +81,26 @@
                 box-shadow: 0 4px 12px rgba(0, 123, 255, 0.8);
             }
             /* Responsive layout for controls */
-             @media (max-width: 600px) {
-            #controls {
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-            }
+            @media (max-width: 600px) {
+                #controls {
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                }
 
-            label {
-                margin: 0;
-            }
+                label {
+                    margin: 0;
+                }
 
-            select,
-            input[type="range"] {
-                width: 100%;
-            }
+                select,
+                input[type="range"] {
+                    width: 100%;
+                }
+
+                canvas {
+                    width: 95% !important; /* Adjust canvas width */
+                    height: auto !important; /* Maintain aspect ratio */
+                }
             }
         </style>
     </head>
@@ -129,7 +134,7 @@
         <script src = "ball.js"></script>
         <script src = "sound.js"></script>
         <script>
-            const canvasSize = Math.min(window.innerWidth, window.innerHeight) * 0.8; // Responsive size
+            const canvasSize = Math.min(window.innerWidth, window.innerHeight) * (window.innerWidth < 600 ? 0.9 : 0.8); // Responsive size
             const mainCanvas = document.getElementById('mainCanvas');
             const context = mainCanvas.getContext("2d");
             mainCanvas.width = canvasSize;
